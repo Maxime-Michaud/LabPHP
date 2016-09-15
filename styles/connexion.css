@@ -1,7 +1,8 @@
 div.header {
   background: linear-gradient(#09AAC1, #FFFAFB);
   margin-bottom: 5%;
-  width: 100%; }
+  width: 100%;
+  overflow: hidden; }
 
 div.header div.top-right-corner {
   text-align: right; }
@@ -27,24 +28,28 @@ div.header div.logo {
     text-decoration: none; }
   div.header div.logo a.current {
     color: #FF4A07; }
-  div.header div.logo form.search {
-    text-align: right;
-    display: inline-block;
-    vertical-align: bottom; }
-    div.header div.logo form.search input {
+  div.header div.logo div.search {
+    padding: 0;
+    margin: 0;
+    border: 0; }
+    div.header div.logo div.search form.search {
+      text-align: right;
+      display: inline-flex;
       height: 26px;
-      /*Pour une raison que j'ignore, mais qui existe probablement, le vertical-align: bottom donne rien.*/
-      position: relative;
-      top: 13px; }
-    div.header div.logo form.search .searchBox {
-      width: 80%;
-      background-color: transparent;
-      border-style: solid;
-      border-color: #000708;
-      border-width: 1px; }
-    div.header div.logo form.search #loupe {
-      width: 26px;
-      right: 52px; }
+      width: 100%; }
+      div.header div.logo div.search form.search .searchBox {
+        flex: 1;
+        background-color: transparent;
+        border-style: solid;
+        border-color: #000708;
+        border-width: 1px;
+        height: 26px; }
+      div.header div.logo div.search form.search #loupe {
+        flex: 0 0 0;
+        height: 26px;
+        width: 26px;
+        position: relative;
+        right: 52px; }
 
 body {
   border: 0;

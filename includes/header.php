@@ -56,8 +56,8 @@ if (isset($_SESSION['user']) && $_SESSION['user']['administrateur'] == 1)
             echo '<div class="col-2"> '.$lienservice.'</div>';
             echo '<div class="col-2"> '.$lienfacture.'</div>';
         ?>
-        <form action="search.php" method="post" class="col-3 search">
+        <div class="search col-3"><form action="search.php" method="post" class="search">
             <input type="text" class="searchBox"><input type="image" id="loupe" src="images/loupe.png"/>
-        </form>
+        </form></div>
     </div>
 </div>

@@ -3,6 +3,7 @@ div.header {
     background: linear-gradient($Bleu, $Blanc);
     margin-bottom: 5%;
     width: 100%;
+    overflow: hidden;
 }
 
 //Liens en haut a droite dans l'en-tête
@@ -45,33 +46,32 @@ div.header div.logo{
         color:$Rouge;
     }
 
-    form.search{
-        text-align: right;
-        display: inline-block;
-        vertical-align: bottom;
-        
+    div.search{
+        padding: 0;
+        margin: 0;
+        border: 0;
+        form.search{
+            text-align: right;
+            display: inline-flex;
+            height: $Grand;
+            width:100%;
+            .searchBox{
+                flex:1;
+                background-color: rgba(0, 0, 0, 0);
+                border-style: solid;
+                border-color: $Noir;
+                border-width: 1px;
+                height: $Grand;
+            }
 
-        input{
-            height: $Grand; 
-            /*Pour une raison que j'ignore, mais qui existe probablement, le vertical-align: bottom donne rien.*/
-            position: relative;
-            top: 0.5 * $Grand;
+            #loupe{
+                flex:0 0 0;
+                height: $Grand;
+                width: $Grand;
+                position: relative;
+                right: 2*$Grand;
 
-
-        }
-
-        .searchBox{
-            width: 80%;
-            background-color: rgba(0, 0, 0, 0);
-            border-style: solid;
-            border-color: $Noir;
-            border-width: 1px;
-
-        }
-
-        #loupe{
-            width: $Grand;
-            right:2 * $Grand;
+            }
         }
     }
 }
