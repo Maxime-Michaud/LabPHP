@@ -1,0 +1,74 @@
+@import "variables.scss";
+@import "header.scss";
+
+body{
+    border: 0;
+    padding: 0;
+    margin: 0;
+    *{
+        font-family: 'Century Gothic';
+    }
+}
+
+p.center {
+    text-align: center;
+    font-size: $Grand;
+}
+
+input{
+    display:inline-block;
+    margin: 10px;
+    color: $Orange;
+    width: 100%;
+    font-size: $Moyen;
+}
+
+form{
+    text-align: center;
+}
+
+
+//Colonnes pour le positionnement
+@for $col from 1 through 12 
+{
+    .col-#{$col}{
+        width: #{99 / 12 * $col}#{"%"};
+        display: inline-block;
+        position: relative;
+        box-sizing: border-box;
+    }
+
+    .col-offset-#{$col}{
+        margin-left: #{100 / 12 * $col}#{"%"};
+        display: inline-block;
+    }
+}
+
+//Boutons
+.button {
+    background-image: url('../images/bouton.png');
+    background-color: transparent; 
+    background-repeat: no-repeat;  
+    background-position: 0px 0px;  
+    border: none;            
+    cursor: pointer;        
+    height: 57px;           
+    width: $LargeurBouton;
+    padding: 0px;     
+    vertical-align: middle;
+    color: $Blanc;
+    font-weight: $Grand;
+}
+
+.clear{
+  clear: both;
+  display: block;  
+  width: 100%;  
+}
+
+.imgPromo{
+    height: 60px; 
+    width: 60px;
+    margin-right: 30px;
+    border-radius: 10px;
+}

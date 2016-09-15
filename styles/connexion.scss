@@ -1,0 +1,22 @@
+@import "variables.scss";
+@import "style.scss";
+
+.LogInTextBox{
+    padding:0;
+    margin: 0;
+    width: 2 * $LargeurBouton;
+    display: inline-block;
+    text-align: left;
+
+    input{
+        margin-left: 0;
+    }
+}
+
+.RedReminder{
+    font-size: $Moyen;
+    color: $Rouge;
+    display: block;
+    text-decoration: underline;
+}
+

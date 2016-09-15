@@ -1,0 +1,43 @@
+main {
+  text-align: center; }
+
+article {
+  margin-left: 7.5%;
+  margin-bottom: 2%;
+  width: 85%;
+  display: flex;
+  padding: 10px;
+  border: 2px solid #FF9F07;
+  text-align: left;
+  font-size: 21px; }
+
+.promo {
+  display: flex; }
+
+.cours {
+  flex-grow: 1;
+  flex-basis: 0; }
+
+.reste {
+  flex: 5;
+  flex-basis: content; }
+
+.titre {
+  font-size: 26px; }
+
+.row {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between; }
+  .row * {
+    flex-grow: 0; }
+  .row img {
+    max-width: 52px; }
+
+.tarif {
+  color: #09AAC1; }
+
+.dure {
+  color: #FF9F07; }
+
+/*# sourceMappingURL=services.css.map */

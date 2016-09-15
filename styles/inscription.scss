@@ -1,0 +1,68 @@
+@import "variables.scss";
+@import "style.scss";
+@import "checkbox.scss";
+
+main {
+    display:flex;
+    flex-flow: column;
+    text-align: left;
+    border: 2px solid $Orange;
+    padding-left:3%;
+    padding-right:3%; 
+    margin: 3%;
+
+    div {
+        @extend .flex-container;
+    }    
+}
+
+.flex-container {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    * {
+        width: 0;
+        flex-grow: 1;
+        flex-basis: auto;
+        flex-shrink: 1;
+    }
+}    
+
+@for $i from 1 through 2 {
+    .flex-#{$i}{
+        flex-grow: $i;
+    }
+}
+
+select {
+    @extend input;
+}
+
+.RedReminder{
+    font-size: $Petit;
+    color: $Rouge;
+    display: inline;
+}
+
+label {
+    color: $Bleu;
+    font-size: $Moyen;
+}
+
+input[type=checkbox]{
+    flex-grow: 0;
+    display: inline-block;
+    height: $Moyen;
+    width: $Moyen;
+}
+
+option:hover,
+option:checked{
+    color: $Noir;
+}
+
+p{
+    font-size: $Moyen;
+}

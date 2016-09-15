@@ -1,0 +1,77 @@
+//CSS pour l'en-tête
+div.header {
+    background: linear-gradient($Bleu, $Blanc);
+    margin-bottom: 5%;
+    width: 100%;
+}
+
+//Liens en haut a droite dans l'en-tête
+div.header div.top-right-corner {
+    text-align: right;
+
+    a{
+        font-size: $Petit;
+        margin-right: 4%;
+        color:$Blanc;        
+    }
+    a:last-child{
+        margin-right:0; 
+    }
+}
+
+//Liens dans le bas de l'en-tête
+div.header div.logo{
+
+    vertical-align: bottom;
+    text-align: left;
+
+    *{
+        vertical-align: bottom;
+        text-align: left;
+    }
+
+    img{
+        margin-left: 40px;
+    }
+
+    a{
+        display: inline-block;
+        font-size:$Grand;
+        color:$Orange;
+        text-decoration: none;
+    }
+
+    a.current{
+        color:$Rouge;
+    }
+
+    form.search{
+        text-align: right;
+        display: inline-block;
+        vertical-align: bottom;
+        
+
+        input{
+            height: $Grand; 
+            /*Pour une raison que j'ignore, mais qui existe probablement, le vertical-align: bottom donne rien.*/
+            position: relative;
+            top: 0.5 * $Grand;
+
+
+        }
+
+        .searchBox{
+            width: 80%;
+            background-color: rgba(0, 0, 0, 0);
+            border-style: solid;
+            border-color: $Noir;
+            border-width: 1px;
+
+        }
+
+        #loupe{
+            width: $Grand;
+            right:2 * $Grand;
+        }
+    }
+}
