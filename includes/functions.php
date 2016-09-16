@@ -14,6 +14,26 @@ function GetCurrentPage()
     return $matches[1];
 }
 
+//Obtiens une liste de toutes les factures 
+function GetFactures(){
+    $query = "SELECT f.pk_facture AS num,
+                     concat(c.prenom, ' ', c.nom) AS nom,
+                     f.no_confirmation AS confirm,
+                     f.date_service AS date,
+                     sum(fs.tarif_facture) AS prix
+              FROM facture f INNER JOIN client c ON c.pk_client = f.fk_client
+                             INNER JOIN ta_facture_service fs ON f.pk_facture = fs.fk_facture
+              GROUP BY f.pk_facture
+              ORDER BY f.pk_facture DESC";
+    return mysql_query($query);
+}
+
+//Obtiens une liste des services associés a une facture
+function GetListeServices($facture)
+{
+
+}
+
 //Connecte un utilisateur. Retourne si la connexion a réussie ou non
 function connexion()
 {
@@ -25,12 +45,8 @@ function connexion()
     $row = mysql_fetch_array($rs, MYSQL_ASSOC);
     $_SESSION["user"] = $row;
     
-    echo '<br> user connecté <br>';
-
     if($row['administrateur'] != 1)
     {
-        echo '<br> user non admin <br>';
-
         $query = "  SELECT  c.nom AS nom, 
                             c.prenom AS prenom,
                             a. no_civique AS Nocivique,
@@ -42,7 +58,6 @@ function connexion()
                     WHERE c.fk_utilisateur = '".$row['pk_utilisateur']."'";
 
         $rs = mysql_query($query);
-        echo '<br> query effectuée <br>';
 
         $row = mysql_fetch_array($rs, MYSQL_ASSOC);
 

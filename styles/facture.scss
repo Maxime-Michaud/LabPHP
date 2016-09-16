@@ -1,0 +1,55 @@
+@import "variables.scss";
+
+.facture {
+    display: flex;
+    flex-flow:  row nowrap;
+    justify-content: space-between;
+    width: 90%;
+    box-sizing: border-box;
+    padding: 20px;
+
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 25px;
+    border: $Orange solid 2px;
+}
+
+.vertical {
+    display: inline-flex;
+    flex-flow: column nowrap;
+    flex:3;
+
+    :nth-child(2){
+        //Numéro de confirmation + prix
+        color: $Bleu;
+        font-size: $Moyen;
+    }
+}
+
+.num{
+    flex: 1;
+    color: $Rouge;
+    font-size: $Moyen;
+}
+
+.nom{
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: $Moyen;
+}
+
+.date{
+    color: $Orange;
+    font-size: $Moyen;
+}
+
+.detail{
+    flex: 2;
+    text-align: right;
+    align-self: flex-end;
+    position: relative;
+    top: 10px;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: $Petit;
+}

@@ -7,12 +7,17 @@ body{
     margin: 0;
     *{
         font-family: 'Century Gothic';
+        color: $Noir
     }
 }
 
-p.center {
+.center {
     text-align: center;
     font-size: $Grand;
+}
+
+.right{
+    text-align: right;
 }
 
 input{

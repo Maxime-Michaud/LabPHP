@@ -9,10 +9,14 @@ if (!isset($facture))
 <div class="facture">
     <?php 
     echo '<div class="num">'.$facture['num'].'</div>';
-    echo '<div class="nom">'.$facture['nom'].'</div>';
-    echo '<div class="date>"'.$facture['date'].'</div>';
-    echo '<div class="col-offset-1 confirm>'.$facture['confirm'].'</div>';
-    echo '<div class="prix">'.number_format($facture['prix'], 2).'</div>';
+    echo '<div class="vertical">';
+    echo    '<div class="nom">'.$facture['nom'].'</div>';
+    echo    '<div>'.$facture['confirm'].'</div>';
+    echo '</div>';
+    echo '<div class="vertical right">';
+    echo    '<div class="date">'.$facture['date'].'</div>';
+    echo    '<div>'.number_format($facture['prix'], 2).'$</div>';
+    echo '</div>';
     ?>
-    <div class="col-2 detail">Détail</div>
+    <div class="detail">Détail</div>
 </div>

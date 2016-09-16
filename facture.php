@@ -4,29 +4,20 @@
         <meta charset="UTF-8">
         <title>Facture</title>
         <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/facture.css">
     </head>
     <body>
 <?php 
+include_once('includes/functions.php');
 include('includes/header.php');
-// $facture = array(
-//     'num' => 100,
-//     'nom' => 'Richard Tremblay',
-//     'confirm' => 'F20XA998',
-//     'date' => '01/02/2016',
-//     'prix' => 102.5
-//     );
 
-// include('partial/facture.php');
-// echo $facture['date'];
-// $facture = array(
-//     'num' => 102,
-//     'nom' => 'Martine Tremblay',
-//     'confirm' => 'F20XA998',
-//     'date' => '01/02/2016',
-//     'prix' => 150
-//     );
+$factures = GetFactures();
 
-// include('partial/facture.php');
-// ?>
+while($facture = mysql_fetch_assoc($factures))
+{
+    include('partial/facture.php');
+}
+
+?>
 </body>
 </html>

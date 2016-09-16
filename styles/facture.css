@@ -1,0 +1,45 @@
+.facture {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 90%;
+  box-sizing: border-box;
+  padding: 20px;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 25px;
+  border: #FF9F07 solid 2px; }
+
+.vertical {
+  display: inline-flex;
+  flex-flow: column nowrap;
+  flex: 3; }
+  .vertical :nth-child(2) {
+    color: #09AAC1;
+    font-size: 21px; }
+
+.num {
+  flex: 1;
+  color: #FF4A07;
+  font-size: 21px; }
+
+.nom {
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 21px; }
+
+.date {
+  color: #FF9F07;
+  font-size: 21px; }
+
+.detail {
+  flex: 2;
+  text-align: right;
+  align-self: flex-end;
+  position: relative;
+  top: 10px;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 18px; }
+
+/*# sourceMappingURL=facture.css.map */

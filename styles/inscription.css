@@ -56,11 +56,15 @@ body {
   padding: 0;
   margin: 0; }
   body * {
-    font-family: 'Century Gothic'; }
+    font-family: 'Century Gothic';
+    color: #000708; }
 
-p.center {
+.center {
   text-align: center;
   font-size: 26px; }
+
+.right {
+  text-align: right; }
 
 input, select {
   display: inline-block;
