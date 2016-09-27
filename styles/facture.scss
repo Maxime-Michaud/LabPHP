@@ -2,7 +2,7 @@
 
 .facture {
     display: flex;
-    flex-flow:  row nowrap;
+    flex-flow:  column nowrap;
     justify-content: space-between;
     width: 90%;
     box-sizing: border-box;
@@ -12,6 +12,11 @@
     margin-right: 5%;
     margin-bottom: 25px;
     border: $Orange solid 2px;
+}
+
+.flex {
+    display: flex;
+    flex-flow:  row nowrap;
 }
 
 .vertical {
@@ -42,9 +47,11 @@
     color: $Orange;
     font-size: $Moyen;
 }
-
-.detail{
-    flex: 2;
+.detail-filler{
+    flex: 1;
+}
+.detail-facture{
+    display: inline-flex;
     text-align: right;
     align-self: flex-end;
     position: relative;
@@ -52,4 +59,7 @@
     text-decoration: underline;
     font-weight: bold;
     font-size: $Petit;
+    div {
+        flex:1;
+    }
 }

@@ -8,15 +8,18 @@ if (!isset($facture))
 ?>
 <div class="facture">
     <?php 
-    echo '<div class="num">'.$facture['num'].'</div>';
-    echo '<div class="vertical">';
-    echo    '<div class="nom">'.$facture['nom'].'</div>';
-    echo    '<div>'.$facture['confirm'].'</div>';
+    echo '<div class="flex">';
+    echo    '<div class="num">'.$facture['num'].'</div>';
+    echo    '<div class="vertical">';
+    echo       '<div class="nom">'.$facture['nom'].'</div>';
+    echo       '<div>'.$facture['confirm'].'</div>';
+    echo    '</div>';
+    echo    '<div class="vertical right">';
+    echo       '<div class="date">'.$facture['date'].'</div>';
+    echo       '<div>'.number_format($facture['prix'], 2).'$</div>';
+    echo    '</div>';
+    echo    '<div class="detail-filler"></div>';
     echo '</div>';
-    echo '<div class="vertical right">';
-    echo    '<div class="date">'.$facture['date'].'</div>';
-    echo    '<div>'.number_format($facture['prix'], 2).'$</div>';
-    echo '</div>';
+    echo '<div class="detail-facture" id="'.$facture['confirm'].'">Détail</div>';
     ?>
-    <div class="detail">Détail</div>
 </div>
