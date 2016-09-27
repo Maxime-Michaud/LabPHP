@@ -1,3 +1,4 @@
 /.sass-cache
 Launch.bat
 styles/*.css.map
+/nbproject/private/

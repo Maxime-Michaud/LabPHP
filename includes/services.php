@@ -81,11 +81,18 @@ function afficherUnRabais($numero)
 <!--Excel débutant-->
 <?php
 function afficherUnePromo($row){
-    echo '<article>';
+    echo '<article >';
+
     echo '<img class="cours" src="./images/services/'.$row['image'].'">';
 
     echo '<div class="reste">';
+    echo '<div class="triangle dropdown">'
+    . '<div class="dropdown-content">'
+            . '<div class="menu">Modifier le service</div>'
+            . '<div class="menu">Désactiver le service</div>'
+            . '</div></div>';
     echo "<div class='titre'>".$row["service_titre"]."</div>";
+    
     echo '<p>'.$row["service_description"].'</p>';
 
     echo  '<div class="row"><div class="tarif">Tarif: '.$row["tarif"].'$'.'</div>';

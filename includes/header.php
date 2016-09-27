@@ -56,8 +56,22 @@ if (isset($_SESSION['user']) && $_SESSION['user']['administrateur'] == 1)
             echo '<div class="col-2"> '.$lienservice.'</div>';
             echo '<div class="col-2"> '.$lienfacture.'</div>';
         ?>
-        <div class="search col-3"><form action="search.php" method="post" class="search">
+        <div class="dropdown">
+            <div class="search col-3"><form action="search.php" method="post" class="search">
             <input type="text" class="searchBox"><input type="image" id="loupe" src="images/loupe.png"/>
-        </form></div>
+            </form></div>
+<!--            <div class="dropdown-content">
+                <form action="facture.php" method="post">
+                <input name="facture" class="inputRecherche" type="text" placeholder="Numéro de facture">
+                <input name="nomClient" class="inputRecherche" type="text" placeholder="Nom du client">
+                <input name="confirmation" class="inputRecherche" type="text" placeholder="Confirmation">
+                <input name="dateDe" class="inputRechercheDate" type="date" placeholder="Date">à
+                <input name="dateA" class="inputRechercheDate" type="date" placeholder="Date">
+                <input name="confirmation" class="inputRecherche" type="text" placeholder="Service">
+                <input class="button buttonRecherche" type="button" name="recherche">
+                <input type="image" id="loupe2" src="images/loupe.png"/>
+                </form>
+            </div>-->
+        </div>   
     </div>
 </div>
