@@ -20,6 +20,6 @@ if (!isset($facture))
     echo    '</div>';
     echo    '<div class="detail-filler"></div>';
     echo '</div>';
-    echo '<div class="detail-facture" id="'.$facture['confirm'].'">Détail</div>';
+    echo '<div class="detail-facture" id="'.$facture['confirm'].'"><div>Détail</div></div>';
     ?>
 </div>

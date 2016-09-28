@@ -11,41 +11,6 @@ article {
   text-align: left;
   font-size: 21px; }
 
-.triangle{
- border-style: solid;
- border-width: 10px 10px 0 10px;
- border-color: #ffa007 transparent transparent transparent;
- float: right;
- margin-top: -10px;
-  width: 0;
- height: 0;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-        z-index: 10;
-    overflow: visible;
-    text-align: right;
-}
-
-.dropdown-content {
-    margin-left:-200px;
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-}
-.menu{
-    background-color: transparent;
-}
-.menu:hover{
-    background-color: lightskyblue;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
 .promo {
   display: flex; }
 
@@ -74,5 +39,36 @@ article {
 
 .dure {
   color: #FF9F07; }
+
+.triangle {
+  border-style: solid;
+  border-width: 10px 10px 0 10px;
+  border-color: #ffa007 transparent transparent transparent;
+  float: right;
+  margin-top: -10px;
+  width: 0;
+  height: 0; }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  z-index: 10;
+  overflow: visible;
+  text-align: right; }
+
+.dropdown-content {
+  margin-left: -200px;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9; }
+
+.menu {
+  background-color: transparent; }
+
+.menu:hover {
+  background-color: lightskyblue; }
+
+.dropdown:hover .dropdown-content {
+  display: block; }
 
 /*# sourceMappingURL=services.css.map */

@@ -37,7 +37,7 @@
   font-size: 21px; }
 
 .detail-filler {
-  flex: 1; }
+  flex: 2; }
 
 .detail-facture {
   display: inline-flex;
@@ -45,10 +45,33 @@
   align-self: flex-end;
   position: relative;
   top: 10px;
-  text-decoration: underline;
   font-weight: bold;
   font-size: 18px; }
-  .detail-facture div {
-    flex: 1; }
+  .detail-facture :last-child {
+    text-decoration: underline;
+    align-self: flex-end; }
+  .detail-facture .services {
+    display: flex;
+    flex-flow: column nowrap; }
+    .detail-facture .services :last-child {
+      text-decoration: none; }
+    .detail-facture .services .service, .detail-facture .services .promo {
+      width: 60vw;
+      display: inline-flex;
+      flex-flow: row nowrap;
+      font-weight: normal;
+      text-align: right;
+      margin-top: 6px; }
+      .detail-facture .services .service div, .detail-facture .services .promo div {
+        display: inline-block;
+        font-weight: normal;
+        flex: 1; }
+      .detail-facture .services .service div:first-child, .detail-facture .services .promo div:first-child {
+        flex: 2;
+        text-align: left; }
+    .detail-facture .services .promo {
+      margin-top: 0; }
+      .detail-facture .services .promo * {
+        color: #FF4A07; }
 
 /*# sourceMappingURL=facture.css.map */

@@ -13,7 +13,7 @@ else if(isset($_POST["user"]) || isset($_POST["password"]))
 
     if ($success)
     {
-        $domain = 'localhost/labphp/';
+        $domain = 'localhost/dev/';
         print_r($_SESSION['user']);
         if ($_SESSION['user']['administrateur'] == 1)
         {

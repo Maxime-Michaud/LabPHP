@@ -2,7 +2,8 @@ div.header {
   background: linear-gradient(#09AAC1, #FFFAFB);
   margin-bottom: 5%;
   width: 100%;
-  overflow: hidden; }
+  overflow: visible;
+  z-index: 0; }
 
 div.header div.top-right-corner {
   text-align: right; }
@@ -50,6 +51,49 @@ div.header div.logo {
         width: 26px;
         position: relative;
         right: 52px; }
+
+.buttonRecherche {
+  background-size: 80px;
+  position: relative;
+  left: 65%;
+  height: 40px !important;
+  width: 80px !important; }
+
+#loupe2 {
+  flex: 0 0 0;
+  height: 26px;
+  width: 26px;
+  position: relative;
+  left: 40%;
+  top: -13px; }
+
+.inputRecherche {
+  width: 90%; }
+
+.inputRechercheDate {
+  width: 38%; }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  z-index: 10;
+  overflow: visible;
+  margin: 0;
+  text-align: right; }
+
+.dropdown-content {
+  text-align-last: right;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  border: solid 2px black;
+  margin-top: 14px;
+  margin-left: 10px; }
+
+.dropdown:hover .dropdown-content {
+  display: block; }
 
 body {
   border: 0;
@@ -201,6 +245,7 @@ form {
   background-color: transparent;
   background-repeat: no-repeat;
   background-position: 0px 0px;
+  display: inline-block;
   border: none;
   cursor: pointer;
   height: 57px;

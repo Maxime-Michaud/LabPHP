@@ -19,7 +19,7 @@ function GetFactures(){
     $query = "SELECT f.pk_facture AS num,
                      concat(c.prenom, ' ', c.nom) AS nom,
                      f.no_confirmation AS confirm,
-                     f.date_service AS date,
+                     DATE_FORMAT(f.date_service, '%d/%m/%Y') AS date,
                      sum(fs.tarif_facture) AS prix
               FROM facture f INNER JOIN client c ON c.pk_client = f.fk_client
                              INNER JOIN ta_facture_service fs ON f.pk_facture = fs.fk_facture
