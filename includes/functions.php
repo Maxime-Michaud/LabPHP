@@ -28,12 +28,6 @@ function GetFactures(){
     return mysql_query($query);
 }
 
-//Obtiens une liste des services associés a une facture
-function GetListeServices($facture)
-{
-
-}
-
 //Connecte un utilisateur. Retourne si la connexion a réussie ou non
 function connexion()
 {
@@ -69,12 +63,12 @@ function connexion()
 //Obtiens tous les produits
 function getAllProduit()
 {
-    
-$query = "SELECT * FROM service";
-$rs = mysql_query($query);
+        
+    $query = "SELECT * FROM service";
+    $rs = mysql_query($query);
 
-if ($rs === false || $rs === NULL)
-    return false;
+    if ($rs === false || $rs === NULL)
+        return false;
 
-return $rs;
+    return $rs;
 }
