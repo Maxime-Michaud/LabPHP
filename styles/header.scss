@@ -1,7 +1,8 @@
 //CSS pour l'en-tête
 div.header {
     background: linear-gradient($Bleu, $Blanc);
-    margin-bottom: 5%;
+    margin-bottom: 3%;
+    padding-bottom: 2%;
     width: 100%;
     overflow: visible;
     z-index: 0;
@@ -10,7 +11,6 @@ div.header {
 //Liens en haut a droite dans l'en-tête
 div.header div.top-right-corner {
     text-align: right;
-
     a{
         font-size: $Petit;
         margin-right: 4%;
@@ -80,47 +80,24 @@ div.header div.logo{
     background-size: 80px;
     position: relative;
     left: 65%;
-      height: 40px !important;
+    height: 40px !important;
     width: 80px !important;
 }
 
 #loupe2{
-            flex: 0 0 0;
-        height: 26px;
-        width: 26px;
-        position: relative;
-        left: 40%;
-        top: -13px;
+    flex: 0 0 0;
+    height: 26px;
+    width: 26px;
+    position: relative;
+    left: 40%;
+    top: -13px;
 }
 
 
 .inputRecherche {
-    width:90%;}
+    width:90%;
+}
 
 .inputRechercheDate {
-    width:38%;}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-        z-index: 10;
-    overflow: visible;
-    margin:0;
-    text-align: right;
-}
-
-.dropdown-content {
-    text-align-last: right;
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    width:100%;
-    border:solid 2px black;
-    margin-top: 14px;
-    margin-left: 10px;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
+    width:38%;
 }

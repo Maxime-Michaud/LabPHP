@@ -27,7 +27,7 @@ while($row = mysql_fetch_assoc($rs))
     echo '<div class="service"><div>' . $row['titre'] . "</div><div>" . $row['tarif'] . "$</div><div>&nbsp;</div></div>";
     
     if ($row['rabais'] != 0)
-        echo '<div class="promo"><div>' . $promo . "</div><div>" . $row['rabais'] . "$</div><div>&nbsp;</div></div>";
+        echo '<div class="promo"><div>' . $promo . "</div><div>- " . $row['rabais'] . "$</div><div>&nbsp;</div></div>";
 }
 
 echo '</div>';

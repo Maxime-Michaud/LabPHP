@@ -1,5 +1,5 @@
 <?php
-
+//Établis la connexion a la bd
 mysql_connect('localhost','tia16007','kaxelu');
 mysql_select_db('tia16007');
 
@@ -14,8 +14,34 @@ function GetCurrentPage()
     return $matches[1];
 }
 
-//Obtiens une liste de toutes les factures 
+//Obtiens une liste de toutes les factures. Si la requete est un POST, filtre selon la requete 
 function GetFactures(){
+    $whereCondition = " 1 = 1";
+
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST')    
+    {
+        if (isset($_POST['facture']) && $_POST['facture'] != "")
+            $whereCondition .= " AND f.pk_facture = " . $_POST['facture'];
+        
+        if (isset($_POST['nomClient']) && $_POST['nomClient'] != "")
+            $whereCondition .= " AND (c.prenom LIKE '%" . $_POST['nomClient'] . "%' OR c.nom LIKE '%" . $_POST['nomClient'] . "%')";
+        
+        if (isset($_POST['confirmation']) && $_POST['confirmation'] != "")
+            $whereCondition .= " AND f.no_confirmation LIKE '%" . $_POST['confirmation'] . "%'";
+
+        if (isset($_POST['dateDe']) && $_POST['dateDe'] != "")
+            $whereCondition .= " AND f.date_service > '" . $_POST['dateDe'] . "'";
+
+        if (isset($_POST['dateA']) && $_POST['dateA'] != "")
+            $whereCondition .= " AND f.date_service < '" . $_POST['dateA'] . "'";
+
+        if (isset($_POST['service']) && $_POST['service'] != "")
+            $whereCondition .= " AND s.service_titre LIKE '%" . $_POST['service'] . "%'";
+    
+    
+    }
+
     $query = "SELECT f.pk_facture AS num,
                      concat(c.prenom, ' ', c.nom) AS nom,
                      f.no_confirmation AS confirm,
@@ -23,6 +49,8 @@ function GetFactures(){
                      sum(fs.tarif_facture) AS prix
               FROM facture f INNER JOIN client c ON c.pk_client = f.fk_client
                              INNER JOIN ta_facture_service fs ON f.pk_facture = fs.fk_facture
+                             INNER JOIN service s ON s.pk_service = fs.fk_service
+              WHERE $whereCondition
               GROUP BY f.pk_facture
               ORDER BY f.pk_facture DESC";
     return mysql_query($query);

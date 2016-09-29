@@ -49,26 +49,4 @@ article {
   width: 0;
   height: 0; }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-  z-index: 10;
-  overflow: visible;
-  text-align: right; }
-
-.dropdown-content {
-  margin-left: -200px;
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9; }
-
-.menu {
-  background-color: transparent; }
-
-.menu:hover {
-  background-color: lightskyblue; }
-
-.dropdown:hover .dropdown-content {
-  display: block; }
-
 /*# sourceMappingURL=services.css.map */

@@ -1,6 +1,7 @@
 div.header {
   background: linear-gradient(#09AAC1, #FFFAFB);
-  margin-bottom: 5%;
+  margin-bottom: 3%;
+  padding-bottom: 2%;
   width: 100%;
   overflow: visible;
   z-index: 0; }
@@ -72,28 +73,6 @@ div.header div.logo {
 
 .inputRechercheDate {
   width: 38%; }
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-  z-index: 10;
-  overflow: visible;
-  margin: 0;
-  text-align: right; }
-
-.dropdown-content {
-  text-align-last: right;
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  width: 100%;
-  border: solid 2px black;
-  margin-top: 14px;
-  margin-left: 10px; }
-
-.dropdown:hover .dropdown-content {
-  display: block; }
 
 body {
   border: 0;

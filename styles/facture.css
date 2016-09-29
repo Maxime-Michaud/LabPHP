@@ -1,3 +1,19 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+  z-index: 10;
+  overflow: visible;
+  text-align: right; }
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: linear-gradient(#FFFAFB, #b4f3fc);
+  border: #FF9F07 1px solid; }
+
+.dropdown:hover .dropdown-content {
+  display: block; }
+
 .facture {
   display: flex;
   flex-flow: column nowrap;

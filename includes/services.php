@@ -27,7 +27,7 @@ function get_promotion($numero){
         if($row["fk_service"] == $numero)
         {
             afficherUnRabais($row["fk_promotion"]);
-        }
+        }   
     }
 }
 

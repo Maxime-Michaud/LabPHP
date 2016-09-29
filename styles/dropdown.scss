@@ -1,0 +1,18 @@
+.dropdown {
+    position: relative;
+    display: inline-block;
+    z-index: 10;
+    overflow: visible;
+    text-align: right;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: linear-gradient($Blanc,lighten($color: $Bleu, $amount: 45)); 
+    border: $Orange 1px solid;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
