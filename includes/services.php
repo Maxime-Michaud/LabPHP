@@ -106,29 +106,24 @@ function afficherUnRabais($numero)
 
       });
  }
-         function modifierPromo($row) {
-      $.ajax({
-           type: "POST",
-           url: './partial/ajax.php',
-           data:{'row':'$row'},
-           success:function(html) {
-             window.location.href = "./modificationService.php";
-           }
-
-      });
- }
+         function modifierPromo(row) {
+             window.location.href = "./modificationService.php?row="+row;
+        }
+        
+        
 </script>
+
 <!--Excel débutant-->
 <?php
 function afficherUnePromo($row){
+    $rowToString = addslashes(implode("|",$row));
     echo '<article>';
-
     echo '<img class="cours" src="./images/services/'.$row['image'].'">';
 
     echo '<div class="reste">';
     echo '<div class="triangle dropdown">'
     . '<div class="dropdown-content">'
-            . '<div type="submit" class="menu" onclick="modifierPromo('.$row.')">Modifier le service</button></div>'
+            . '<div type="submit" class="menu" onclick="modifierPromo(\''.$rowToString.'\')">Modifier le service</button></div>'
             . '<div class="menu" onclick="desactiverService('.$row['pk_service'].')">Désactiver le service</div>'
             . '</div></div>';
     echo "<div class='titre'>".$row["service_titre"]."</div>";

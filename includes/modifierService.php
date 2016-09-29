@@ -49,76 +49,47 @@ function afficherUnRabais($numero)
 }
 ?>
 <script>
-      function desactiverService($id) {
+      function modifierService(row) {
       $.ajax({
            type: "POST",
-           url: './partial/ajax.php',
-           data:{'id':$id,'reactivate':'non'},
+           url: './partial/modService.php',
+           data:{'row':row,
+               'titre':document.getElementsByName("titre")[0].value,
+           'description':document.getElementsByName("description")[0].value,
+           'heure':document.getElementsByName("heure")[0].value,
+           'montant':document.getElementsByName("montant")[0].value,
+           'actif':document.getElementsByName("actif")[0].checked,
+           'image':document.getElementsByName("image")[0].src},
            success:function(html) {
-             location.reload();
+             window.location.href = "./services.php";
            }
-
-      });
- }
- 
-       function reactiverTout($id) {
-      $.ajax({
-           type: "POST",
-           url: './partial/ajax.php',
-           data:{'reactivate':'oui'},
-           success:function(html) {
-             location.reload();
-           }
-
       });
  }
 </script>
 <!--Excel débutant-->
 <?php
 function afficherUnePromo($row){
-    echo '<article >';
-    echo '<h1>Compléter le formulaire pour ajouter un nouveau service</h1>';
-    echo '<p class="redReminder">Tous les champs sont obligatoires';
-    echo '<img class="cours" style="border:2px solid black;" src="./images/services/'.$row['image'].'">';
-
-    echo '<input type="text" class="reste">';
-    echo '<div class="triangle dropdown">'
-    . '<div class="dropdown-content">'
-            . '<div class="menu">Modifier le service</div>'
-            . '<div class="menu" onclick="desactiverService('.$row['pk_service'].')">Désactiver le service</div>'
-            . '</div></div>';
-    echo "<div class='titre'>".$row["service_titre"]."</div>";
-    
-    echo '<p>'.$row["service_description"].'</p>';
-
-    echo  '<div class="row"><div class="tarif">Tarif: '.$row["tarif"].'$'.'</div>';
-    echo  '<div class="dure">Durée: '.$row["duree"].'H'.'</div>';
-
-    if(isset($_SESSION["client"]))
-    {
-        echo  '<img class="panier" src="./images/icones/panier.png"></div>';
-    }
-    else 
-    {
-        echo  '<img class="panier" src="./images/icones/panier.png" style="visibility:hidden"></div>';
-        echo  '<br>';
-        echo  '<div class="promos">'; 
-        echo  '<div class="col-3" style="vertical-align: top;margin-right: 30px;">Promotion:</div>';
-        echo  '<div class="col-8">';
-
-        get_promotion($row["pk_service"]);
-        echo    '<img src=./images/icones/plus.png class="imgPromo">';
-        echo    '<img src=./images/icones/medias.jpeg class="imgPromo" style="float: right;margin-right: -10px;">';
-        echo    '</div>';
-        echo '</div>';
-        echo '</div>';
-        echo '</div>';
-    }
-    echo '</article>';
+    echo '<article2>';
+    echo '<h1>Vous pouvez maintenant modifier les informations du service</h1>';
+    echo '<p class="redReminder">Tous les champs sont obligatoires</p>';
+    echo '<div class="image">';
+    echo '<img name="image" class="cours" src="./images/services/'.$row[6].'">';
+    echo '<div class="divCamera">Mettre à jour la photo </div>';
+    echo '<div class="divCamera"><img class="camera" src="./images/icones/camera.png"></div>';
+    echo '</div>';
+    echo '<div class="aCoteImage">';
+    echo '<input name="titre" type="text" value="'.$row[1].'"/>';
+    echo '<textarea name="description" rows="5">'.$row[2].$row[3].'</textarea>';
+    echo '<input name="heure" type="text" style="width:45%;" value="'.$row[3].'h"/>';
+    echo '<input name="montant" type="text" style="width:45%;" value="'.$row[4].'$"/>';
+    echo '</div>';
+    echo '<div style="text-align:right;vertical-align:bottom;"><input name="actif" style="vertical-align:bottom; width:10%" type="checkbox" value="1" checked><label for="activer">Activer le service dans le catalogue</label></div>';
+    echo '<div style="text-align:right"><input name="soumettre" onclick="modifierService(\''.addslashes($_GET['row']).'\')" type="submit" value="Confirmer" class="button"></div>';
+    echo '</article2>';
 }
 
-$row = json_decode(base64_decode($_POST['row']));
-var_dump($row);
-afficherUnePromo($row);
+//$row = explode(",", $_GET);
+$test = explode("|",$_GET['row']);
+afficherUnePromo($test);
 ?>
         

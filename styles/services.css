@@ -11,6 +11,67 @@ article {
   text-align: left;
   font-size: 21px; }
 
+input{
+    padding:0;
+    margin-top: 0;
+    vertical-align: top;
+     resize: none;
+}
+
+.image{
+    display: inline-block;
+    width: 37%;
+    border:2px solid black;
+}
+
+.cours{
+    margin-left: 30px;
+}
+
+.camera{
+    max-width: 60px;
+    max-height: 50px;
+    margin-left: 30%;
+
+    background-color: blue;
+}
+
+.divCamera{
+    width:50%;
+    max-height: 60px;
+    height: 60px;
+    overflow: hidden;
+    display:inline-block;
+    padding: 0;
+    margin: 0;
+    border-top: 2px black solid;
+}
+textarea{
+    width: 96%;
+    padding:0;
+    margin: 7px;
+    vertical-align: top;
+     resize: none;
+}
+
+.aCoteImage{
+    display:inline-block;
+    width: 60%;
+    padding:0;
+    margin-left: 10px;
+    margin-top: 0;
+    vertical-align: top;
+}
+article2 {
+  margin-left: 7.5%;
+  margin-bottom: 2%;
+  width: 85%;
+  display:inline-block;
+  padding: 10px;
+  border: 2px solid #FF9F07;
+  text-align: left;
+  font-size: 21px; }
+
 .triangle{
  border-style: solid;
  border-width: 10px 10px 0 10px;
@@ -51,6 +112,7 @@ article {
 
 .cours {
   flex-grow: 1;
+  display: block;
   flex-basis: 0; }
 
 .reste {
