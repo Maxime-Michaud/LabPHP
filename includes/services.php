@@ -1,7 +1,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<?php
+<div style="text-align: right;padding:20px;"><a href="./ajouterService.php" style="text-align: right;">Ajouter un service</a></div>
+    <?php
 include_once("functions.php");
-
 if (isset($_SESSION['user']))
 {
     get_produit();
