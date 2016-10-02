@@ -21,24 +21,25 @@ function returnActif(){
 }
 mysql_connect('localhost','tia16007','kaxelu');
 mysql_select_db('tia16007');
-if($_POST['titre'] != "Titre" && $_POST['titre'] != "" )
+var_dump($_POST);
+if($_POST['titre2'] != "Titre" && $_POST['titre2'] != "" )
 {
-   if($_POST['description'] != "Description" && $_POST['description'] != "")
+   if($_POST['description2'] != "Description" && $_POST['description2'] != "")
    {
-     if($_POST['heure'] != "Durée" && $_POST['heure'] != "")
+     if($_POST['heure2'] != "Durée" && $_POST['heure2'] != "")
      {
-         if($_POST['heure'] != "Durée" && $_POST['heure'] != "")
-         {
-             if($_POST['montant'] != "Tarif" && $_POST['montant'] != "")
-             {
-                 $query = "INSERT INTO `service`(`pk_service`, `service_titre`, `service_description`, `duree`, `tarif`, `actif`, `image`) VALUES (".returnPkService().",\"".$_POST['titre']."\",\"".$_POST['description']."\",".$_POST['heure'].",".$_POST['montant'].",".returnActif().",\"".getImageName($_POST['image'])."\");";
-                 echo $query;
-                 $rs = mysql_query($query);
-                 var_dump($rs);
-             }
-         }
+        if($_POST['montant2'] != "Tarif" && $_POST['montant2'] != "")
+        {
+            $query = "INSERT INTO `service`(`pk_service`, `service_titre`, `service_description`, `duree`, `tarif`, `actif`, `image`) VALUES (".returnPkService().",\"".$_POST['titre2']."\",\"".$_POST['description2']."\",".$_POST['heure2'].",".$_POST['montant2'].",".returnActif().",\"".getImageName($_POST['image'])."\");";
+            echo $query;
+            $rs = mysql_query($query);
+            if(!$rs)
+               echo 'L\'ajout de service a écouché, le champs durée doit être un entier et le champ montant doit être au format 11.11';
+            return;
+        }
      }
    }
 }
+echo 'L\'ajout de service a écouché, vérifier les champs';
 ?>
 

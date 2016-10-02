@@ -1,5 +1,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<div style="text-align: right;padding:20px;"><a href="./ajouterService.php" style="text-align: right;">Ajouter un service</a></div>
+<div style="text-align: right;padding:20px;"><a href="./modifAjoutService.php" style="text-align: right;">Ajouter un service</a></div>
     <?php
 include_once("functions.php");
 if (isset($_SESSION['user']))
@@ -107,7 +107,7 @@ function afficherUnRabais($numero)
       });
  }
          function modifierPromo(row) {
-             window.location.href = "./modificationService.php?row="+row;
+             window.location.href = "./modifAjoutService.php?row="+row;
         }
         
         
