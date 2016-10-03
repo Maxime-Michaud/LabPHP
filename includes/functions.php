@@ -184,4 +184,8 @@ function AddOrUpdateUser()
 
         mysql_query($insertClient);
     }
+
+    $_POST["user"] = $_POST['courriel'];
+    //Recharge les infos de l'utilisateur
+    connexion();
 }
