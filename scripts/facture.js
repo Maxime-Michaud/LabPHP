@@ -1,4 +1,3 @@
-/*jslint devel:true */
 /*global $ */
 "use strict";
 

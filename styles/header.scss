@@ -3,7 +3,6 @@ div.header {
     background: linear-gradient($Bleu, $Blanc);
     margin-bottom: 3%;
     padding-bottom: 2%;
-    width: 100%;
     overflow: visible;
     z-index: 0;
 }
@@ -23,13 +22,14 @@ div.header div.top-right-corner {
 
 //Liens dans le bas de l'en-tête
 div.header div.logo{
-
+    display: flex;
     vertical-align: bottom;
     text-align: left;
 
     *{
         vertical-align: bottom;
-        text-align: left;
+        text-align: left;   
+        align-self: flex-end;
     }
 
     img{
@@ -47,57 +47,37 @@ div.header div.logo{
         color:$Rouge;
     }
 
-    div.search{
-        padding: 0;
-        margin: 0;
-        border: 0;
-        form.search{
-            text-align: right;
-            display: inline-flex;
-            height: $Grand;
-            width:100%;
-            .searchBox{
-                flex:1;
-                background-color: rgba(0, 0, 0, 0);
-                border-style: solid;
-                border-color: $Noir;
-                border-width: 1px;
+    div.dropdown {
+        div.search{
+            padding: 0;
+            margin: 0;
+            border: 0;
+            form.search{
                 height: $Grand;
-            }
+                width:100%;
+                display: flex;
 
-            #loupe{
-                flex:0 0 0;
-                height: $Grand;
-                width: $Grand;
-                position: relative;
-                right: 2*$Grand;
+                
+                *{
+                    align-self: flex-start;
+                }
 
+                .searchBox{
+                    background-color: rgba(0, 0, 0, 0);
+                    border-style: solid;
+                    border-color: $Noir;
+                    border-width: 1px;
+                    height: $Grand;
+                }
+
+                #loupe{
+                    flex:0 0 0;
+                    height: $Grand;
+                    width: $Grand;
+                    position: relative;
+                    right: 2 * $Grand;
+                }
             }
         }
     }
-}
-.buttonRecherche{
-    background-size: 80px;
-    position: relative;
-    left: 65%;
-    height: 40px !important;
-    width: 80px !important;
-}
-
-#loupe2{
-    flex: 0 0 0;
-    height: 26px;
-    width: 26px;
-    position: relative;
-    left: 40%;
-    top: -13px;
-}
-
-
-.inputRecherche {
-    width:90%;
-}
-
-.inputRechercheDate {
-    width:38%;
 }

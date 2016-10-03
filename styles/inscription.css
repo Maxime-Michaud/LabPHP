@@ -2,7 +2,6 @@ div.header {
   background: linear-gradient(#09AAC1, #FFFAFB);
   margin-bottom: 3%;
   padding-bottom: 2%;
-  width: 100%;
   overflow: visible;
   z-index: 0; }
 
@@ -16,11 +15,13 @@ div.header div.top-right-corner {
     margin-right: 0; }
 
 div.header div.logo {
+  display: flex;
   vertical-align: bottom;
   text-align: left; }
   div.header div.logo * {
     vertical-align: bottom;
-    text-align: left; }
+    text-align: left;
+    align-self: flex-end; }
   div.header div.logo img {
     margin-left: 40px; }
   div.header div.logo a {
@@ -30,49 +31,28 @@ div.header div.logo {
     text-decoration: none; }
   div.header div.logo a.current {
     color: #FF4A07; }
-  div.header div.logo div.search {
+  div.header div.logo div.dropdown div.search {
     padding: 0;
     margin: 0;
     border: 0; }
-    div.header div.logo div.search form.search {
-      text-align: right;
-      display: inline-flex;
+    div.header div.logo div.dropdown div.search form.search {
       height: 26px;
-      width: 100%; }
-      div.header div.logo div.search form.search .searchBox {
-        flex: 1;
+      width: 100%;
+      display: flex; }
+      div.header div.logo div.dropdown div.search form.search * {
+        align-self: flex-start; }
+      div.header div.logo div.dropdown div.search form.search .searchBox {
         background-color: transparent;
         border-style: solid;
         border-color: #000708;
         border-width: 1px;
         height: 26px; }
-      div.header div.logo div.search form.search #loupe {
+      div.header div.logo div.dropdown div.search form.search #loupe {
         flex: 0 0 0;
         height: 26px;
         width: 26px;
         position: relative;
         right: 52px; }
-
-.buttonRecherche {
-  background-size: 80px;
-  position: relative;
-  left: 65%;
-  height: 40px !important;
-  width: 80px !important; }
-
-#loupe2 {
-  flex: 0 0 0;
-  height: 26px;
-  width: 26px;
-  position: relative;
-  left: 40%;
-  top: -13px; }
-
-.inputRecherche {
-  width: 90%; }
-
-.inputRechercheDate {
-  width: 38%; }
 
 body {
   border: 0;
@@ -245,6 +225,18 @@ form {
   margin-right: 30px;
   border-radius: 10px; }
 
+.flex-1 {
+  flex-grow: 1; }
+
+.flex-2 {
+  flex-grow: 2; }
+
+.flex-3 {
+  flex-grow: 3; }
+
+.flex-4 {
+  flex-grow: 4; }
+
 label {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -280,7 +272,7 @@ input[type=checkbox].css-checkbox:checked + label.css-label, select[type=checkbo
 .css-label {
   background-image: url(http://csscheckbox.com/checkboxes/lite-x-cyan.png); }
 
-main {
+main form {
   display: flex;
   flex-flow: column;
   text-align: left;
@@ -289,23 +281,17 @@ main {
   padding-right: 3%;
   margin: 3%; }
 
-.flex-container, main div {
+.flex-container, main form div {
   margin: 0;
   padding: 0;
   display: flex;
   flex-flow: row;
   justify-content: space-between; }
-  .flex-container *, main div * {
+  .flex-container *, main form div * {
     width: 0;
     flex-grow: 1;
     flex-basis: auto;
     flex-shrink: 1; }
-
-.flex-1 {
-  flex-grow: 1; }
-
-.flex-2 {
-  flex-grow: 2; }
 
 .RedReminder {
   font-size: 18px;
@@ -321,6 +307,9 @@ input[type=checkbox], select[type=checkbox] {
   display: inline-block;
   height: 21px;
   width: 21px; }
+
+input[type=submit], select[type=submit] {
+  align-self: flex-end; }
 
 option:hover,
 option:checked {

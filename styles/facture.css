@@ -14,6 +14,27 @@
 .dropdown:hover .dropdown-content {
   display: block; }
 
+.buttonRecherche {
+  background-size: 80px;
+  position: relative;
+  left: 65%;
+  height: 40px !important;
+  width: 80px !important; }
+
+#loupe2 {
+  flex: 0 0 0;
+  height: 26px;
+  width: 26px;
+  position: relative;
+  left: 40%;
+  top: -13px; }
+
+.inputRecherche {
+  width: 90%; }
+
+.inputRechercheDate {
+  width: 38%; }
+
 .facture {
   display: flex;
   flex-flow: column nowrap;
