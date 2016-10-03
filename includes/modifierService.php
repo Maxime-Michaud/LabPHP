@@ -2,40 +2,6 @@
 <?php
 include_once("functions.php");
 
-if (isset($_SESSION['user']))
-{
-    get_produit();
-}
-else 
-{
-    echo '<p>Veuillez vous identifiez pour modifier les produits</p>';
-}
-
-function get_produit(){
-    $query = "SELECT * FROM service";
-    $rs = mysql_query($query);
-    while ($row = mysql_fetch_array($rs, MYSQL_ASSOC))
-    {
-        if($row['actif']==1)
-        {
-            afficherUnePromo($row);
-        }
-
-    }
-}
-
-function get_promotion($numero){
-    $query = "SELECT * FROM ta_promotion_service";
-    $rs = mysql_query($query);
-    while ($row = mysql_fetch_array($rs, MYSQL_ASSOC))
-    {
-        if($row["fk_service"] == $numero)
-        {
-            afficherUnRabais($row["fk_promotion"]);
-        }   
-    }
-}
-
 function afficherUnRabais($numero)
 {
     $query = "SELECT * FROM ta_promotion_service WHERE fk_promotion =".$numero;
@@ -106,29 +72,19 @@ function afficherUnRabais($numero)
 
       });
  }
-         function modifierPromo($row) {
-      $.ajax({
-           type: "POST",
-           url: './partial/ajax.php',
-           data:{'row':'$row'},
-           success:function(html) {
-             window.location.href = "./modificationService.php";
-           }
-
-      });
- }
 </script>
 <!--Excel débutant-->
 <?php
 function afficherUnePromo($row){
-    echo '<article>';
+    echo '<article >';
+    echo '<h1>Compléter le formulaire pour ajouter un nouveau service</h1>';
+    echo '<p class="redReminder">Tous les champs sont obligatoires';
+    echo '<img class="cours" style="border:2px solid black;" src="./images/services/'.$row['image'].'">';
 
-    echo '<img class="cours" src="./images/services/'.$row['image'].'">';
-
-    echo '<div class="reste">';
+    echo '<input type="text" class="reste">';
     echo '<div class="triangle dropdown">'
     . '<div class="dropdown-content">'
-            . '<div type="submit" class="menu" onclick="modifierPromo('.$row.')">Modifier le service</button></div>'
+            . '<div class="menu">Modifier le service</div>'
             . '<div class="menu" onclick="desactiverService('.$row['pk_service'].')">Désactiver le service</div>'
             . '</div></div>';
     echo "<div class='titre'>".$row["service_titre"]."</div>";
@@ -160,7 +116,9 @@ function afficherUnePromo($row){
     }
     echo '</article>';
 }
-?>
 
-<button type="button" onclick="reactiverTout()">Réactiver tout</button>
+$row = json_decode(base64_decode($_POST['row']));
+var_dump($row);
+afficherUnePromo($row);
+?>
         
