@@ -32,6 +32,17 @@ else if(isset($_POST["user"]) || isset($_POST["password"]))
         <meta charset="UTF-8">
         <title>connexion</title>
         <link rel="stylesheet" href="styles/connexion.css">    
+        <script>
+            function resetPW(){
+                if(document.getElementById("email").value != "")
+                {
+                    alert("Votre mot de passe temporaire vous a été envoyé par email." +
+                            "\nVeuillez l'utiliser pour vous connecter et réinitialiser votre mot de passe.");
+                } else {
+                    alert("Le courriel est requis pour cette action.");
+                }
+            }
+        </script>
      </head>
     <body>
         <?php include('includes/header.php'); ?>
@@ -40,9 +51,9 @@ else if(isset($_POST["user"]) || isset($_POST["password"]))
                 <p class="center">Veuillez vous identifier pour avoir la possibilité d'acheter des formations</p>
                 <form action="connexion.php" method="post">
                     <div class="LogInTextBox">
-                        <input type="text" name="user" placeholder="Utilisateur ou email"><br>
+                        <input type="text" name="user" id="email" placeholder="Utilisateur ou email"><br>
                         <input type="password" name="password" placeholder="Mot de passe"><br>
-                        <br><a class="RedReminder">Mot de passe oublié?</a><br>
+                        <br><a onclick="resetPW()" class="RedReminder">Mot de passe oublié?</a><br>
                      </div><br>
                      <input type="submit" value="Connexion" class="button">
                      <input type="button" value="S'inscrire" onclick="window.location='inscription.php';" class="button"><br><br>

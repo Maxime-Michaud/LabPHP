@@ -7,7 +7,7 @@ $currentpage = strtolower(GetCurrentPage());
 
 if (isset($_SESSION['user']) && $_SESSION['user']['administrateur'] == 1)
 {
-    if ($currentpage === 'service.php')
+    if ($currentpage === 'services.php')
         $lienservice = '<a href="./services.php" class="current">Services</a>';
     else
         $lienservice = '<a href="./services.php">Services</a>';
