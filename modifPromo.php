@@ -11,7 +11,7 @@
         <?php 
             include('./includes/header.php'); 
             echo '<main>';
-            include('./includes/gestionPromotion.php');
+            include('./includes/modificationPromotion.php');
             echo '</main>';
         ?>
     </body>
