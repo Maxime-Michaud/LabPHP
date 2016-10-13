@@ -2,8 +2,7 @@ div.header {
   background: linear-gradient(#09AAC1, #FFFAFB);
   margin-bottom: 5%;
   width: 100%;
-  overflow: visible;
-z-index: 0;}
+  overflow: hidden; }
 
 div.header div.top-right-corner {
   text-align: right; }
@@ -206,7 +205,6 @@ form {
   cursor: pointer;
   height: 57px;
   width: 180px;
-  display: inline-block;
   padding: 0px;
   vertical-align: middle;
   color: #FFFAFB;

@@ -88,7 +88,7 @@ else if(isset($_POST["user"]) || isset($_POST["password"]))
 			// Initialise Facebook api
 			window.fbAsyncInit = function() {
 				FB.init({
-					appId      : '876410859161681',		// works on a registered url
+					appId      : '202384993526513',		// works on a registered url
 				  	xfbml      : true,
 				  	version    : 'v2.7'
 				});
