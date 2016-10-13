@@ -1,5 +1,174 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<div style="text-align: right;padding:20px;"><a href="./modifAjoutService.php" style="text-align: right;">Ajouter un service</a></div>
+
+
+<div style="text-align: right;padding:20px;">
+    <button class="btnAjouter" id="myBtn">Ajouter un service</button></div>
+
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+      
+    <div  id="modal-content" class="modal-body">
+      <span class="close">×</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+          $.ajax({
+           type: "POST",
+           url: './includes/ajouterModifierService.php',
+           data:{},
+           success:function(html) {
+               document.getElementById("modal-content").innerHTML = html;}
+      });
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+    function modifierService(row) {
+      $.ajax({
+           type: "POST",
+           url: './partial/modService.php',
+           data:{'row':row,
+               'titre':document.getElementsByName("titre2")[0].value,
+           'description':document.getElementsByName("description2")[0].value,
+           'heure':document.getElementsByName("heure2")[0].value,
+           'montant':document.getElementsByName("montant2")[0].value,
+           'actif':document.getElementsByName("actif")[0].checked,
+           'image':document.getElementsByName("image")[0].src},
+           success:function(html) {
+             window.location.href = "./services.php";
+           }
+      });
+    }
+      
+    function modifierService2(row) {
+          modal.style.display = "block";
+          $.ajax({
+           type: "POST",
+           url: './includes/ajouterModifierService.php?row='+row,
+           data:{},
+           success:function(html) {
+               document.getElementById("modal-content").innerHTML = html;}
+      });
+        }
+
+
+      function desactiverService($id) {
+      $.ajax({
+           type: "POST",
+           url: './partial/activationService.php',
+           data:{'id':$id,'reactivate':'non'},
+           success:function(html) {
+             location.reload();
+           }
+
+      });
+ }
+ 
+       function supprimerPromotion($id) {
+      if(confirm("Voulez-vous vraiement supprimer cette promotion?"))
+      {
+      $.ajax({
+           type: "POST",
+           url: './partial/supprimerPromotion.php',
+           data:{'id':$id},
+           success:function(html) {
+             location.reload();
+           }
+
+      });
+      }
+ }
+ 
+       function reactiverTout($id) {
+      $.ajax({
+           type: "POST",
+           url: './partial/activationService.php',
+           data:{'reactivate':'oui'},
+           success:function(html) {
+             location.reload();
+           }
+
+      });
+ }
+        
+        function modifierPromotion2(row) {
+                      modal.style.display = "block";
+          $.ajax({
+           type: "POST",
+           url: './includes/modificationPromotion.php?row='+row,
+           data:{},
+           success:function(html) {
+               document.getElementById("modal-content").innerHTML = html;}
+      });
+        }
+        
+        function ajouterPromotion(row) {      
+    $.ajax({
+         type: "POST",
+         url: './partial/ajPromo.php',
+         data:{'fk_service':row,
+             'date_debut':document.getElementsByName("date_debut")[0].value,
+         'date_fin':document.getElementsByName("date_fin")[0].value,
+         'code':document.getElementsByName("code")[0].value,
+         'nomPromo':document.getElementsByName("titrePromo")[0].value,
+         'numPromo':document.getElementsByName("hiddenNoPromo")[0].value},
+         success:function(html) {
+          location.reload();
+         }
+    });
+  }
+  
+function modifierTitre(titre, pourcent, numPromo)
+  {
+      document.getElementsByName("titrePromo")[0].value = titre;
+      var pourcentage = pourcent * 100;
+      document.getElementsByName("pourcentage")[0].innerHTML = pourcentage+"%";
+      document.getElementsByName("hiddenNoPromo")[0].value = numPromo;
+  }
+  
+function modifierPromotion(row) {
+    $.ajax({
+         type: "POST",
+         url: './partial/modPromo.php',
+         data:{'row':row,
+             'date_debut':document.getElementsByName("date_debut")[0].value,
+         'date_fin':document.getElementsByName("date_fin")[0].value,
+         'code':document.getElementsByName("code")[0].value,
+         'nomPromo':document.getElementsByName("titrePromo")[0].value,
+         'numPromo':document.getElementsByName("hiddenNoPromo")[0].value},
+         success:function(html) {
+           location.reload();
+         }
+    });
+ }
+</script>
+
     <?php
 include_once("functions.php");
 if (isset($_SESSION['user']))
@@ -71,7 +240,7 @@ function afficherUnRabais($numero)
     echo '>';
     echo '<div class="triangle2 dropdown">'
     . '<div class="dropdown-content">'
-            . '<div type="submit" class="menu" onclick="modifierPromotion(\''.$rowAPasser.'\')">Modifier la promotion</button></div>'
+            . '<div type="submit" class="menu" onclick="modifierPromotion2(\''.$rowAPasser.'\')">Modifier la promotion</button></div>'
             . '<div class="menu" onclick="supprimerPromotion('.$numpromo.')">Supprimer la promotion</div>'
             . '</div></div>';
     echo '<div class="pourcent">'.$rabais.'%</div>'
@@ -79,52 +248,7 @@ function afficherUnRabais($numero)
 }
 ?>
 <script>
-      function desactiverService($id) {
-      $.ajax({
-           type: "POST",
-           url: './partial/activationService.php',
-           data:{'id':$id,'reactivate':'non'},
-           success:function(html) {
-             location.reload();
-           }
 
-      });
- }
- 
-       function supprimerPromotion($id) {
-      if(confirm("Voulez-vous vraiement supprimer cette promotion?"))
-      {
-      $.ajax({
-           type: "POST",
-           url: './partial/supprimerPromotion.php',
-           data:{'id':$id},
-           success:function(html) {
-             location.reload();
-           }
-
-      });
-      }
- }
- 
-       function reactiverTout($id) {
-      $.ajax({
-           type: "POST",
-           url: './partial/activationService.php',
-           data:{'reactivate':'oui'},
-           success:function(html) {
-             location.reload();
-           }
-
-      });
- }
-         function modifierService(row) {
-             window.location.href = "./modifAjoutService.php?row="+row;
-        }
-        
-        function modifierPromotion(row) {
-             window.location.href = "./modifPromo.php?row="+row;
-        }
-        
 </script>
 
 <!--Excel débutant-->
@@ -137,7 +261,7 @@ function afficherUnePromo($row){
     echo '<div class="reste">';
     echo '<div class="triangle dropdown">'
     . '<div class="dropdown-content">'
-            . '<div type="submit" class="menu" onclick="modifierService(\''.$rowToString.'\')">Modifier le service</button></div>'
+            . '<div id="myBtn2" class="menu" onclick="modifierService2(\''.$rowToString.'\')">Modifier le service</button></div>'
             . '<div class="menu" onclick="desactiverService('.$row['pk_service'].')">Désactiver le service</div>'
             . '</div></div>';
     echo "<div class='titre'>".$row["service_titre"]."</div>";
@@ -161,7 +285,7 @@ function afficherUnePromo($row){
         echo  '<div class="col-8">';
 
         getAfficherPromotion($row["pk_service"]);
-        echo    '<div style="display:inline-block;" onclick="modifierPromotion(\''.$row['pk_service'].'\')"><img src=./images/icones/plus.png class="imgPromo"></div>';
+        echo    '<div style="display:inline-block;" onclick="modifierPromotion2(\''.$row['pk_service'].'\')"><img src=./images/icones/plus.png class="imgPromo"></div>';
         echo    '<img src=./images/icones/medias.jpeg class="imgPromo" style="float: right;margin-right: -10px;">';
         echo    '</div>';
         echo '</div>';
