@@ -11,7 +11,7 @@ if (!isset($facture))
     echo '<div class="flex">';
     echo    '<div class="num">'.$facture['num'].'</div>';
     echo    '<div class="vertical">';
-    echo       '<div class="nom">'.$facture['nom'].'</div>';
+    echo       '<div class="nom" clientid="'.$facture['client'].'">'.$facture['nom'].'</div>';
     echo       '<div>'.$facture['confirm'].'</div>';
     echo    '</div>';
     echo    '<div class="vertical right">';

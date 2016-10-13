@@ -21,10 +21,32 @@ function expand(element) {
     }
 }
 
+//Affiche les infos d'un client
+function showCustomerInfo(element) {
+    $.ajax("partial/infoClient.php", {
+        method: "GET",
+        dataType: "html",
+        data: { id:$(element).attr("clientid")},
+        success: function(data){
+            var dialog = $(data).dialog({
+                autoOpen: false,
+                position: { my: "left top", at: "center", of: element },
+                dialogClass: "no-close",
+                width:400
+            });
+            dialog.dialog("open");
+            dialog.click(() => dialog.dialog("close"));
+        }
+    })
+}
+
 //Ajoute des fonction onclick sur les details
-function clicksDetails() {
+function addClickHandlers() {
     Array.from($(".detail-facture")).forEach(function (element) {
         element.lastElementChild.onclick = () => expand(element);
+    });
+    Array.from($(".nom")).forEach(function (element) {
+        element.onclick = () => showCustomerInfo(element);
     });
 }
 
@@ -36,5 +58,5 @@ function addDropDown() {
     });
 }
 
-clicksDetails();
+addClickHandlers();
 addDropDown();

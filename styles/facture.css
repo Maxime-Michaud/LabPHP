@@ -111,4 +111,27 @@
       .detail-facture .services .promo * {
         color: #FF4A07; }
 
+.no-close .ui-dialog-titlebar-close {
+  display: none; }
+
+.ui-dialog {
+  border: #FF9F07 2px solid;
+  background: linear-gradient(#FFFAFB, lightblue);
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  padding-top: 0; }
+
+.detailClient {
+  width: 100% !important; }
+  .detailClient td {
+    font-size: 21px;
+    font-weight: bold; }
+  .detailClient td.tel {
+    color: #09AAC1;
+    text-align: right; }
+  .detailClient td.adr {
+    color: #FF9F07;
+    text-align-last: justify; }
+
 /*# sourceMappingURL=facture.css.map */

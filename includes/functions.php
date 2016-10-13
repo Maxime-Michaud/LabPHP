@@ -44,7 +44,8 @@ function GetFactures(){
                      concat(c.prenom, ' ', c.nom) AS nom,
                      f.no_confirmation AS confirm,
                      DATE_FORMAT(f.date_service, '%d/%m/%Y') AS date,
-                     sum(fs.tarif_facture) AS prix
+                     sum(fs.tarif_facture) AS prix,
+                     f.fk_client AS client
               FROM facture f INNER JOIN client c ON c.pk_client = f.fk_client
                              INNER JOIN ta_facture_service fs ON f.pk_facture = fs.fk_facture
                              INNER JOIN service s ON s.pk_service = fs.fk_service

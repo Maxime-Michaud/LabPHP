@@ -103,3 +103,34 @@
     }
 }
 
+.no-close .ui-dialog-titlebar-close {
+    display: none;
+}
+
+.ui-dialog{
+    border: $Orange 2px solid;
+    background: linear-gradient($Blanc, lightblue) ;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-top: 0;
+}
+
+.detailClient{
+    width: 100%!important;
+    td {
+        font-size: $Moyen;
+        font-weight: bold;
+    }
+
+    td.tel {
+        color: $Bleu;
+        text-align: right;
+    }
+
+    td.adr{
+        color: $Orange;
+        text-align-last: justify;
+    }
+
+}

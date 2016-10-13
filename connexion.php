@@ -13,7 +13,7 @@ else if(isset($_POST["user"]) || isset($_POST["password"]))
 
     if ($success)
     {
-        $domain = 'localhost/dev/';
+        $domain = 'weba.cegepsherbrooke.qc.ca/~tia16007/';
         print_r($_SESSION['user']);
         if ($_SESSION['user']['administrateur'] == 1)
         {
@@ -21,7 +21,7 @@ else if(isset($_POST["user"]) || isset($_POST["password"]))
         }
         else
         {
-            header("Location: http://" . $domain . "catalogue.php");
+            header("Location: http://" . $domain . "inscription.php");
         }
     }
 }
