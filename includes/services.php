@@ -232,7 +232,7 @@ function afficherUnRabais($numero)
     {
         echo '<img src="./images/icones/diagonal.gif" class="diagonal">';
     }
-    echo '<div class="imgPromo"';
+    echo '<div class="imgPromo borderNoir"';
     if($promoFini)
     {
         echo ' style="opacity: 0.20;"';
@@ -286,8 +286,13 @@ function afficherUnePromo($row){
 
         getAfficherPromotion($row["pk_service"]);
         echo    '<div style="display:inline-block;" onclick="modifierPromotion2(\''.$row['pk_service'].'\')"><img src=./images/icones/plus.png class="imgPromo"></div>';
-        echo    '<img src=./images/icones/medias.jpeg class="imgPromo" style="float: right;margin-right: -10px;">';
-        echo    '</div>';
+        echo    '<img src=./images/icones/medias.jpeg class="imgPromo" usemap="#Share" style="float: right;margin-right: -10px;">';
+        echo  '  <map name="Share">
+                    <area shape="circle" coords="11,43,12" href="MET LE LINK FACEBOOOK LA MAX" alt="Facebook">
+                    <area shape="circle" coords="49,43,12" href="MET LE LINK GOOGLE+ LA MAX" alt="Google+">
+                    <area shape="circle" coords="30,17,12" href="MET LE LINK TWITTER LA MAX" alt="Twitter">
+                 </map>';  
+        echo '</div>';
         echo '</div>';
         echo '</div>';
         echo '</div>';

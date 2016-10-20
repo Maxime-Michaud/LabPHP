@@ -17,11 +17,13 @@ article {
   margin-right: 30px;
   border-radius: 10px;
   display: inline-block;
-  border: 2px solid black;
   vertical-align: top;
   z-index: 10;
 }
 
+.borderNoir{
+    border:2px solid black;
+}
 .imgPromo:hover{
     opacity: 1 !important;
 }
@@ -328,9 +330,7 @@ article2 {
     position: relative;
     margin: auto;
     padding: 0;
-    border: 1px solid #888;
     width: 80%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
@@ -383,4 +383,5 @@ article2 {
     text-decoration: underline;
     cursor: pointer; cursor: hand;
 }
+
 /*# sourceMappingURL=services.css.map */
