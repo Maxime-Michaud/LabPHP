@@ -2,7 +2,7 @@
 @import "style.scss";
 @import "checkbox.scss";
 
-main {
+main form {
     display:flex;
     flex-flow: column;
     text-align: left;
@@ -30,12 +30,6 @@ main {
     }
 }    
 
-@for $i from 1 through 2 {
-    .flex-#{$i}{
-        flex-grow: $i;
-    }
-}
-
 select {
     @extend input;
 }
@@ -57,7 +51,9 @@ input[type=checkbox]{
     height: $Moyen;
     width: $Moyen;
 }
-
+input[type=submit]{
+    align-self: flex-end;
+}
 option:hover,
 option:checked{
     color: $Noir;

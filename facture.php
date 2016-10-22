@@ -5,9 +5,6 @@
         <title>Facture</title>
         <link rel="stylesheet" href="./styles/style.css">
         <link rel="stylesheet" href="./styles/facture.css">
-        <script src="http://code.jquery.com/jquery-3.1.1.min.js"
-			    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-			    crossorigin="anonymous"></script>
     </head>
     <body>
 <?php 

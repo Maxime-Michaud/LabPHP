@@ -15,15 +15,20 @@ $query = "  SELECT     s.service_titre AS titre,
                 WHERE f.no_confirmation = '$facture'";
 $rs = mysql_query($query);
 
+echo '<div class="services"> ';
+
 while($row = mysql_fetch_assoc($rs))
 {
     $query = "  SELECT p.promotion_titre AS titre
                 FROM ta_promotion_service ps INNER JOIN promotion p ON p.pk_promotion = ps.fk_promotion
                 WHERE '" . $row['date'] . "' BETWEEN ps.date_debut AND ps.date_fin 
                     AND ps.fk_service = " . $row['service'];
-
     $promo = mysql_fetch_assoc(mysql_query($query))['titre'];
-    echo '<div>'
+    echo '<div class="service"><div>' . $row['titre'] . "</div><div>" . $row['tarif'] . "$</div><div>&nbsp;</div></div>";
+    
+    if ($row['rabais'] != 0)
+        echo '<div class="promo"><div>' . $promo . "</div><div>- " . $row['rabais'] . "$</div><div>&nbsp;</div></div>";
 }
 
-echo 'Réduire';
+echo '</div>';
+echo '<div class="reduire">Réduire</div>';

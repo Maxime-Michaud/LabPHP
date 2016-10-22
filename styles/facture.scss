@@ -1,4 +1,5 @@
 @import "variables.scss";
+@import "dropdown.scss";
 
 .facture {
     display: flex;
@@ -48,7 +49,7 @@
     font-size: $Moyen;
 }
 .detail-filler{
-    flex: 1;
+    flex: 2;
 }
 .detail-facture{
     display: inline-flex;
@@ -56,10 +57,80 @@
     align-self: flex-end;
     position: relative;
     top: 10px;
-    text-decoration: underline;
     font-weight: bold;
     font-size: $Petit;
-    div {
-        flex:1;
+
+    :last-child{
+        text-decoration: underline;
+        align-self: flex-end;
     }
+
+    .services{
+        display: flex;
+        flex-flow: column nowrap;
+
+        :last-child{
+            text-decoration: none;
+        }
+
+        .service{    
+            width: 60vw;
+            display: inline-flex;
+            flex-flow: row nowrap;
+            font-weight: normal;
+            text-align: right;
+            margin-top: 6px;
+            div{
+                display: inline-block;
+                font-weight: normal;
+                flex: 1;
+            }
+
+            div:first-child{
+                flex:2;
+                text-align: left;
+            }
+        
+        }
+
+        .promo{
+            @extend .service;
+            margin-top:0;
+            * {
+                color:$Rouge;
+            }
+        }
+    }
+}
+
+.no-close .ui-dialog-titlebar-close {
+    display: none;
+}
+
+.ui-dialog{
+    border: $Orange 2px solid;
+    background: linear-gradient($Blanc, lightblue) ;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-top: 0;
+}
+
+.detailClient{
+    width: 100%!important;
+    td {
+        font-size: $Moyen;
+        font-weight: bold;
+    }
+
+    td.tel {
+        color: $Bleu;
+        text-align: right;
+    }
+
+    td.adr{
+        color: $Orange;
+        text-align-last: justify;
+    }
+
 }

@@ -55,6 +55,7 @@ form{
     background-color: transparent; 
     background-repeat: no-repeat;  
     background-position: 0px 0px;  
+    display: inline-block;
     border: none;            
     cursor: pointer;        
     height: 57px;           
@@ -76,4 +77,10 @@ form{
     width: 60px;
     margin-right: 30px;
     border-radius: 10px;
+}
+
+@for $i from 1 through 4 {
+    .flex-#{$i}{
+        flex-grow: $i;
+    }
 }
