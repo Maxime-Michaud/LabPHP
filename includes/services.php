@@ -286,14 +286,18 @@ function afficherUnePromo($row){
 
         getAfficherPromotion($row["pk_service"]);
         echo    '<div style="display:inline-block;" onclick="modifierPromotion2(\''.$row['pk_service'].'\')"><img src=./images/icones/plus.png class="imgPromo"></div>';
+        //echo    '<div class="fb-share-button" data-href="http://weba.cegepsherbrooke.qc.ca/~tia16007/services.php" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fweba.cegepsherbrooke.qc.ca%2F%7Etia16007%2Fservices.php&amp;src=sdkpreparse">Share</a></div>';
+        //echo '<a href="https://twitter.com/intent/tweet?screen_name=TwitterDev" class="twitter-mention-button" data-text="Super promotion!" data-show-count="false">Tweet to @TwitterDev</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>';
+        //echo '<div class="g-plus" data-action="share" data-href="http://weba.cegepsherbrooke.qc.ca/~tia16007/services.php"></div>';
         echo    '<img src=./images/icones/medias.jpeg class="imgPromo" usemap="#Share" style="float: right;margin-right: -10px;">';
         echo  '  <map name="Share">
-                    <area shape="circle" coords="11,43,12" href="MET LE LINK FACEBOOOK LA MAX" alt="Facebook">
-                    <area shape="circle" coords="49,43,12" href="MET LE LINK GOOGLE+ LA MAX" alt="Google+">
-                    <area shape="circle" coords="30,17,12" href="MET LE LINK TWITTER LA MAX" alt="Twitter">
-                 </map>';  
+                    <area shape="circle" coords="11,43,12" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fweba.cegepsherbrooke.qc.ca%2F%7Etia16007%2Fservices.php&amp;src=sdkpreparse" alt="Facebook">
+                    <area shape="circle" coords="49,43,12" alt="Google+">
+                    <area shape="circle" coords="30,17,12" href="https://twitter.com/intent/tweet?screen_name=TwitterDev" class="twitter-mention-button" data-text="Super promotion!" data-show-count="false">
+                 </map>';
         echo '</div>';
         echo '</div>';
+        echo '<div style="floar:right;" class="g-plus" data-action="share" data-href="http://weba.cegepsherbrooke.qc.ca/~tia16007/services.php"></div>';
         echo '</div>';
         echo '</div>';
     }
