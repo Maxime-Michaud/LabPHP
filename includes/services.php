@@ -77,7 +77,16 @@ window.onclick = function(event) {
       });
         }
 
-
+    function panierModal(row) {
+          modal.style.display = "block";
+          $.ajax({
+           type: "POST",
+           url: './includes/panier.php?row='+row,
+           data:{},
+           success:function(html) {
+               document.getElementById("modal-content").innerHTML = html;}
+      });
+        }
       function desactiverService($id) {
       $.ajax({
            type: "POST",
@@ -278,7 +287,7 @@ function afficherUnePromo($row){
     }
     else 
     {
-        echo  '<img class="panier" src="./images/icones/panier.png" style="visibility:hidden"></div>';
+        echo  '<div style="border:2px solid black;width:50px;height:50px;" onclick="panierModal(\''.$rowToString.'\')"> <img style="width:40px;height:40px;" src="./images/icones/panier.png"></div></div>';
         echo  '<br>';
         echo  '<div class="promos">'; 
         echo  '<div class="col-3" style="vertical-align: top;margin-right: 30px;">Promotion:</div>';

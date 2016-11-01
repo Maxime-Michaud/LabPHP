@@ -11,6 +11,10 @@ article {
   text-align: left;
   font-size: 21px; }
 
+.panier{
+    height: 50px;
+    width: 50px;
+}
 .promo {
   display: flex; }
 
