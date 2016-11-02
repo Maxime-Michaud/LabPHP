@@ -35,7 +35,10 @@ if (isset($_SESSION['user']) && $_SESSION['user']['administrateur'] == 1)
     if (isset($_SESSION['user']))
     {
         $log = "<a href='./connexion.php?deconnexion=1'>Se déconnecter</a>";
-        $panier = '<a href="./panier.php">Panier</a>';
+        if(isset($_SESSION["nbItemPanier"]) && $_SESSION["nbItemPanier"] > 0)
+            $panier = '<a href="./panier.php">Panier('.$_SESSION["nbItemPanier"].')</a>';
+        else
+            $panier = '<a href="./panier.php">Panier</a>';
     }
     else
     {

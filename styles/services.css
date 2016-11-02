@@ -464,7 +464,8 @@ article2 {
     color: white;
 }
 
-.modal-body {padding: 2px 16px;}
+.modal-body {padding: 2px 16px;
+background-color: white}
 
 .modal-footer {
     padding: 2px 16px;

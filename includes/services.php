@@ -287,7 +287,7 @@ function afficherUnePromo($row){
     }
     else 
     {
-        echo  '<div style="border:2px solid black;width:50px;height:50px;" onclick="panierModal(\''.$rowToString.'\')"> <img style="width:40px;height:40px;" src="./images/icones/panier.png"></div></div>';
+        echo  '<div onclick="panierModal(\''.$rowToString.'\')"> <img style="width:40px;height:40px;" src="./images/icones/panier.png"></div></div>';
         echo  '<br>';
         echo  '<div class="promos">'; 
         echo  '<div class="col-3" style="vertical-align: top;margin-right: 30px;">Promotion:</div>';
