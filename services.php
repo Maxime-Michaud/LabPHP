@@ -1,5 +1,6 @@
 <?php session_start();
-$_SESSION["nbItemPanier"]=0;?>
+if(!isset($_SESSION["nbItemPanier"]))
+    $_SESSION["nbItemPanier"]=0;?>
 <!DOCTYPE html>
 <html>
     <head>

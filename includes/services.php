@@ -99,6 +99,16 @@ window.onclick = function(event) {
       });
  }
  
+     function ajouterAuPanier(row) {
+      $.ajax({
+           type: "POST",
+           url: './partial/fonctionAjouterPanier.php',
+           data:{'row':row},
+           success:function(html) {
+             location.reload();
+           }
+      });
+    }
        function supprimerPromotion($id) {
       if(confirm("Voulez-vous vraiement supprimer cette promotion?"))
       {
